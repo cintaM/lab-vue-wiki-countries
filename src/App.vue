@@ -1,27 +1,16 @@
 <template>
   <div className="app">
-    <header className="app-header">
-      <img :src="logo" className="app-logo" alt="logo" />
-      <p>
-        Edit <code>src/app.js</code> and save to reload.
-      </p>
-      <a
-        className="app-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn Vue
-      </a>
-    </header>
+    <router-link to="/">HomeView</router-link> 
+    <router-view/>
   </div>
 </template>
 
 <script>
-  import logo from './logo.svg';
+  
   export default {
+    
     data: () => ({
-      logo
+      
     })
   }
 </script>
