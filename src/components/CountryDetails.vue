@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="col-7" >
-      <img :src="image" alt="country flag" style="width: 300px" />
+    <h1>hola</h1>
+      <!-- <img :src="image" alt="country flag" style="width: 300px" />
       <h1>{{ name }}</h1>
-      <table class="table">
+      <div class="table">
         <thead></thead>
         <tbody>
           <tr>
@@ -29,8 +29,7 @@
             </td>
           </tr>
         </tbody>
-      </table>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -38,13 +37,15 @@
 export default {
   name: "CountryDetails",
 
-  props: {
-    image: String,
-    name: String,
-    border: Array,
-    area: String,
-    capital: String,
-  },
+  data(){
+    return {
+      image: "",
+      name: "",
+      border: [],
+      area: "",
+      capital: ""
+    }
+  }
 };
 </script>
 

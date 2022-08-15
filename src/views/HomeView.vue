@@ -1,14 +1,19 @@
 <template>
-<div class="app">
-  <NavBar />
+<div>
+  <NavBar/>
 
-  <div className="container">
-    <div className="row">
-      <CountriesList  />
-      <CountryDetails />
-      
+  
+
+    <div class="container">
+      <div class="row">
+        
+          <CountriesList/>
+         
+      </div>
+    <CountryDetails/>
+          
     </div>
-  </div>
+  
 </div>
 </template>
 
@@ -21,14 +26,7 @@ export default {
     name: "HomeView",
   components: { NavBar, CountriesList, CountryDetails, countries },
 
-  computed: {
-
-    countries() {
-        return data.map((country) => {
-            return country
-        })
-    }
-  }
+  
   
 
 }
