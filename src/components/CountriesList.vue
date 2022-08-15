@@ -1,15 +1,21 @@
 <template>
   <div class="col-5" style="max-height: 90vh; overflow: scroll">
-    <div class="list-group" v-for="country in countries" :key="country.id">
+    <div @click="$emit('show-details', country.id)" class="list-group" v-for="country in countries" :key="country.id">
       <router-link
         class="list-group-item list-group-item-action"
         :to="`/list/${country.alpha3Code}`"
       >
-        <img :src="country.image" />
+        <img
+          :src="`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`"
+          alt=""
+        />
         <p>{{ country.name.common }}</p>
       </router-link>
     </div>
-    <router-view/>
+    <div class="col-7">
+
+      <router-view />
+    </div>
   </div>
 </template>
 

@@ -1,18 +1,14 @@
 <template>
 <div>
   <NavBar/>
-
-  
-
-    <div class="container">
-      <div class="row">
-        
-          <CountriesList/>
-         
-      </div>
-    <CountryDetails/>
-          
+  <div class="container">
+    <div class="row">
+      
+      <CountriesList/>
+      
+      <CountryDetails/>
     </div>
+  </div>
   
 </div>
 </template>

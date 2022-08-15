@@ -1,51 +1,50 @@
 <template>
-  <div>
-    <h1>hola</h1>
-      <!-- <img :src="image" alt="country flag" style="width: 300px" />
-      <h1>{{ name }}</h1>
-      <div class="table">
-        <thead></thead>
-        <tbody>
-          <tr>
-            <td style="width: 30%">Capital</td>
-            <td>{{ capital }}</td>
-          </tr>
-          <tr>
-            <td>Area</td>
-            <td>{{ area }} <sup>2</sup></td>
-          </tr>
-          <tr>
-            <td>{{ border }}</td>
-            <td>
-              <ul>
-                <li><a href="/AND">Andorra</a></li>
-                <li><a href="/BEL">Belgium</a></li>
-                <li><a href="/DEU">Germany</a></li>
-                <li><a href="/ITA">Italy</a></li>
-                <li><a href="/MCO">Monaco</a></li>
-                <li><a href="/ESP">Spain</a></li>
-                <li><a href="/CHE">Switzerland</a></li>
-              </ul>
-            </td>
-          </tr>
-        </tbody>
-    </div> -->
+  
+    <div class="col-7">
+    <img
+          :src="`https://flagpedia.net/data/flags/icon/72x54/${country.alpha2Code.toLowerCase()}.png`"
+          alt=""
+        />
+    <h1>{{ country.name.common }}</h1>
+    <div class="table">
+      <thead></thead>
+      <tbody>
+        <tr>
+          <td style="width: 30%">Capital</td>
+          <td>{{ country.capital }}</td>
+        </tr>
+        <tr>
+          <td>Area</td>
+          <td>{{ country.area }}km <sup>2</sup></td>
+        </tr>
+        <tr>
+          <td>borders</td>
+          <td>
+            <ul  v-for="border in country.borders" :key="border">
+              <li><a href="/AND">{{border}}</a></li>
+              
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </div>
   </div>
+  
 </template>
 
 <script>
+import countries from "../../public/countries.json";
 export default {
   name: "CountryDetails",
 
-  data(){
+  data() {
     return {
-      image: "",
-      name: "",
-      border: [],
-      area: "",
-      capital: ""
-    }
-  }
+      countries: countries,
+      details: this.$route.params.details,
+
+      country: countries.filter((country1) => country1.alpha3Code === this.$route.params.details)[0]
+    };
+  },
 };
 </script>
 
