@@ -1,5 +1,5 @@
 <template>
-<div class="mx-auto pb-2" style="width: 200px;">
+<div class="mx-auto pb-2" style="width: 200px;" v-if="countryIn">
     <img class="imagen"
       :src="`https://flagpedia.net/data/flags/icon/72x54/${alpha2Code.toLowerCase()}.png`"
       alt=""
@@ -65,7 +65,7 @@ export default {
       this.countryIn = finalResponse;
     },
   },
-  mounted() {
+  created() {
     this.byAlphaCode();
   },
 

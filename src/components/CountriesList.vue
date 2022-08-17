@@ -25,17 +25,19 @@
           <router-view />
       </div>
     </div>
-  </div>
-
- 
+    <div v-else class="row">
+      <Spinner text="Loading Countries..." />
+    </div>
+  </div> 
 </template>
 
 <script>
 
 import NavBar from "../components/NavBar.vue";
+import Spinner from "../components/Spinner.vue"
 export default {
   name: "CountriesList",
-  components: { NavBar },
+  components: { NavBar, Spinner },
 
   data() {
     return {
@@ -49,7 +51,6 @@ export default {
         "http://ih-countries-api.herokuapp.com/countries"
       );
       const finalResponse = await response.json();
-      this.countries = finalResponse;
       console.log(finalResponse);
 
       this.countries = finalResponse.sort((a, b) => {
