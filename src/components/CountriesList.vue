@@ -38,6 +38,7 @@ import Spinner from "../components/Spinner.vue"
 export default {
   name: "CountriesList",
   components: { NavBar, Spinner },
+  
 
   data() {
     return {
