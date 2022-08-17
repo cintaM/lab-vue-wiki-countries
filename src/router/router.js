@@ -1,20 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
+  
   {
     path: '/',
-    name: 'root',
-    component: () => import(/* webpackChunkName: 'index' */ '../views/HomeView.vue')
-  },
-  {
-    path: '/list',
     name: 'list',
-    component: () => import(/* webpackChunkName: 'list' */ '../components/CountriesList.vue'),
+    component: () => import('../components/CountriesList.vue'),
     children: [
       {
-        path: '/list/:details',
+        path: '/list/:alpha3Code',
         name: 'details',
-        component: () => import(/* webpackChunkName: 'details' */ '../components/CountryDetails.vue')
+        component: () => import( '../components/CountryDetails.vue')
       },
     ]
   },
